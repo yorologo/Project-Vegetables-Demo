@@ -31,7 +31,7 @@ public class ItemDao {
         try {
             //trans = session.beginTransaction();
 
-            Item item = (Item) session.get(Item.class, id);
+            item = (Item) session.get(Item.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {

@@ -31,7 +31,7 @@ public class CompraDao {
         try {
             //trans = session.beginTransaction();
 
-            Compra compra = (Compra) session.get(Compra.class, id);
+            compra = (Compra) session.get(Compra.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {

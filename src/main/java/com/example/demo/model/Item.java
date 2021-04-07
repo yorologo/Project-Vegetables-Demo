@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.FetchType;
 
 /* 
 *  Java Hibernate - Model Class - NotasDeVenta.Item

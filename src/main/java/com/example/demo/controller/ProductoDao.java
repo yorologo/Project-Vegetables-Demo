@@ -31,7 +31,7 @@ public class ProductoDao {
         try {
             //trans = session.beginTransaction();
 
-            Producto producto = (Producto) session.get(Producto.class, id);
+            producto = (Producto) session.get(Producto.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {

@@ -31,7 +31,7 @@ public class VendedorDao {
         try {
             //trans = session.beginTransaction();
 
-            Vendedor vendedor = (Vendedor) session.get(Vendedor.class, id);
+            vendedor = (Vendedor) session.get(Vendedor.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {

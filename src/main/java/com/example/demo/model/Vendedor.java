@@ -1,4 +1,4 @@
-package com.example.demo.model; 
+package com.example.demo.model;
 
 import com.example.demo.model.Compra;
 import java.sql.*;
@@ -16,26 +16,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.FetchType;
 
 /* 
 *  Java Hibernate - Model Class - NotasDeVenta.Vendedor
 *  
-*/ 
+*/
 @Entity
 @Table(name = "Vendedor")
 public @Data class Vendedor {
 
     // fields
-	@Id
- 	@GeneratedValue
-	@Column(name = "id")
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int m_id;
 
-	@Column(name = "nombre")
+    @Column(name = "nombre")
     private String m_nombre;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "idVendedor")
     private List<Compra> compra;
-    
+
 }

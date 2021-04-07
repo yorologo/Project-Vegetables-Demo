@@ -31,7 +31,7 @@ public class UnidadMedidaDao {
         try {
             //trans = session.beginTransaction();
 
-            UnidadMedida unidadmedida = (UnidadMedida) session.get(UnidadMedida.class, id);
+            unidadmedida = (UnidadMedida) session.get(UnidadMedida.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {
