@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
-import com.example.demo.model.Compra;
+import com.example.demo.model.Producto;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,22 +16,23 @@ import java.util.List;
 
 
 /**
- * Returns the Database Access Object (DAO) for our Compra class.
+ * Returns the Database Access Object (DAO) for our Producto class.
  */
-public class CompraDao {
+@Service
+public class ProductoDao {
 
    /*
-   * Returns one Compra object or null if not found
+   * Returns one Producto object or null if not found
    */
-    public Compra getByID(Integer id) {
-        Compra compra = null;
+    public Producto getByID(Integer id) {
+        Producto producto = null;
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            compra = (Compra) session.get(Compra.class, id);
+            producto = (Producto) session.get(Producto.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {
@@ -40,14 +41,14 @@ public class CompraDao {
         } finally {
             session.close();
         }
-        return compra;
+        return producto;
     }
 
 
    /*
-   * Adds a new Compra object and return the id
+   * Adds a new Producto object and return the id
    */
-    public int add(Compra compra) {
+    public int add(Producto producto) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         int id = 0;
@@ -55,7 +56,7 @@ public class CompraDao {
         try {
             trans = session.beginTransaction();
 
-            id = (int) session.save(compra);
+            id = (int) session.save(producto);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -71,16 +72,16 @@ public class CompraDao {
 
 
    /*
-   * Updates Compra object
+   * Updates Producto object
    */
-    public void update(Compra compra) {
+    public void update(Producto producto) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             trans = session.beginTransaction();
 
-            session.update(compra);
+            session.update(producto);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -95,7 +96,7 @@ public class CompraDao {
 
 
    /*
-   * Deletes one Compra record
+   * Deletes one Producto record
    */
     public boolean deleteByID(Integer id) {
         boolean deleted = false;
@@ -105,10 +106,10 @@ public class CompraDao {
         try {
             trans = session.beginTransaction();
 
-            Compra compra = (Compra) session.get(Compra.class, id);
+            Producto producto = (Producto) session.get(Producto.class, id);
 
-            if (compra != null) {
-                session.delete(compra);
+            if (producto != null) {
+                session.delete(producto);
                 trans.commit();
                 deleted = true;
             }
@@ -127,17 +128,17 @@ public class CompraDao {
 
 
    /*
-   * Returns a list of Compra objects
+   * Returns a list of Producto objects
    */
-    public List<Compra> getAll() {
-        List<Compra> list = new ArrayList<Compra>();
+    public List<Producto> getAll() {
+        List<Producto> list = new ArrayList<Producto>();
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            list = session.createQuery("from Compra").list();
+            list = session.createQuery("from Producto").list();
 
             //trans.commit();
         } catch (HibernateException e) {

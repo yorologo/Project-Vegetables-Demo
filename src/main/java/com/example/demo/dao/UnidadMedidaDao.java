@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
 import com.example.demo.model.UnidadMedida;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.List;
 /**
  * Returns the Database Access Object (DAO) for our UnidadMedida class.
  */
+@Service
 public class UnidadMedidaDao {
 
    /*

@@ -1,9 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
-import com.example.demo.model.Comprador;
+import com.example.demo.model.Vendedor;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
@@ -16,22 +15,22 @@ import java.util.List;
 
 
 /**
- * Returns the Database Access Object (DAO) for our Comprador class.
+ * Returns the Database Access Object (DAO) for our Vendedor class.
  */
-public class CompradorDao {
+public class VendedorDao {
 
    /*
-   * Returns one Comprador object or null if not found
+   * Returns one Vendedor object or null if not found
    */
-    public Comprador getByID(Integer id) {
-        Comprador comprador = null;
+    public Vendedor getByID(Integer id) {
+        Vendedor vendedor = null;
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            comprador = (Comprador) session.get(Comprador.class, id);
+            vendedor = (Vendedor) session.get(Vendedor.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {
@@ -40,14 +39,14 @@ public class CompradorDao {
         } finally {
             session.close();
         }
-        return comprador;
+        return vendedor;
     }
 
 
    /*
-   * Adds a new Comprador object and return the id
+   * Adds a new Vendedor object and return the id
    */
-    public int add(Comprador comprador) {
+    public int add(Vendedor vendedor) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         int id = 0;
@@ -55,7 +54,7 @@ public class CompradorDao {
         try {
             trans = session.beginTransaction();
 
-            id = (int) session.save(comprador);
+            id = (int) session.save(vendedor);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -71,16 +70,16 @@ public class CompradorDao {
 
 
    /*
-   * Updates Comprador object
+   * Updates Vendedor object
    */
-    public void update(Comprador comprador) {
+    public void update(Vendedor vendedor) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             trans = session.beginTransaction();
 
-            session.update(comprador);
+            session.update(vendedor);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -95,7 +94,7 @@ public class CompradorDao {
 
 
    /*
-   * Deletes one Comprador record
+   * Deletes one Vendedor record
    */
     public boolean deleteByID(Integer id) {
         boolean deleted = false;
@@ -105,10 +104,10 @@ public class CompradorDao {
         try {
             trans = session.beginTransaction();
 
-            Comprador comprador = (Comprador) session.get(Comprador.class, id);
+            Vendedor vendedor = (Vendedor) session.get(Vendedor.class, id);
 
-            if (comprador != null) {
-                session.delete(comprador);
+            if (vendedor != null) {
+                session.delete(vendedor);
                 trans.commit();
                 deleted = true;
             }
@@ -127,17 +126,17 @@ public class CompradorDao {
 
 
    /*
-   * Returns a list of Comprador objects
+   * Returns a list of Vendedor objects
    */
-    public List<Comprador> getAll() {
-        List<Comprador> list = new ArrayList<Comprador>();
+    public List<Vendedor> getAll() {
+        List<Vendedor> list = new ArrayList<Vendedor>();
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            list = session.createQuery("from Comprador").list();
+            list = session.createQuery("from Vendedor").list();
 
             //trans.commit();
         } catch (HibernateException e) {

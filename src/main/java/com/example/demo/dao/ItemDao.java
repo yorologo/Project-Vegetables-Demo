@@ -1,9 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
 import com.example.demo.model.Item;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;

@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
-import com.example.demo.model.Vendedor;
+import com.example.demo.model.Compra;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,22 +16,23 @@ import java.util.List;
 
 
 /**
- * Returns the Database Access Object (DAO) for our Vendedor class.
+ * Returns the Database Access Object (DAO) for our Compra class.
  */
-public class VendedorDao {
+@Service
+public class CompraDao {
 
    /*
-   * Returns one Vendedor object or null if not found
+   * Returns one Compra object or null if not found
    */
-    public Vendedor getByID(Integer id) {
-        Vendedor vendedor = null;
+    public Compra getByID(Integer id) {
+        Compra compra = null;
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            vendedor = (Vendedor) session.get(Vendedor.class, id);
+            compra = (Compra) session.get(Compra.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {
@@ -40,14 +41,14 @@ public class VendedorDao {
         } finally {
             session.close();
         }
-        return vendedor;
+        return compra;
     }
 
 
    /*
-   * Adds a new Vendedor object and return the id
+   * Adds a new Compra object and return the id
    */
-    public int add(Vendedor vendedor) {
+    public int add(Compra compra) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         int id = 0;
@@ -55,7 +56,7 @@ public class VendedorDao {
         try {
             trans = session.beginTransaction();
 
-            id = (int) session.save(vendedor);
+            id = (int) session.save(compra);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -71,16 +72,16 @@ public class VendedorDao {
 
 
    /*
-   * Updates Vendedor object
+   * Updates Compra object
    */
-    public void update(Vendedor vendedor) {
+    public void update(Compra compra) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             trans = session.beginTransaction();
 
-            session.update(vendedor);
+            session.update(compra);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -95,7 +96,7 @@ public class VendedorDao {
 
 
    /*
-   * Deletes one Vendedor record
+   * Deletes one Compra record
    */
     public boolean deleteByID(Integer id) {
         boolean deleted = false;
@@ -105,10 +106,10 @@ public class VendedorDao {
         try {
             trans = session.beginTransaction();
 
-            Vendedor vendedor = (Vendedor) session.get(Vendedor.class, id);
+            Compra compra = (Compra) session.get(Compra.class, id);
 
-            if (vendedor != null) {
-                session.delete(vendedor);
+            if (compra != null) {
+                session.delete(compra);
                 trans.commit();
                 deleted = true;
             }
@@ -127,17 +128,17 @@ public class VendedorDao {
 
 
    /*
-   * Returns a list of Vendedor objects
+   * Returns a list of Compra objects
    */
-    public List<Vendedor> getAll() {
-        List<Vendedor> list = new ArrayList<Vendedor>();
+    public List<Compra> getAll() {
+        List<Compra> list = new ArrayList<Compra>();
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            list = session.createQuery("from Vendedor").list();
+            list = session.createQuery("from Compra").list();
 
             //trans.commit();
         } catch (HibernateException e) {

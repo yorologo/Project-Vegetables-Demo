@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.dao;
 
-import com.example.demo.model.Producto;
+import com.example.demo.model.Comprador;
 import com.example.demo.util.HibernateUtil;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,22 +16,22 @@ import java.util.List;
 
 
 /**
- * Returns the Database Access Object (DAO) for our Producto class.
+ * Returns the Database Access Object (DAO) for our Comprador class.
  */
-public class ProductoDao {
+public class CompradorDao {
 
    /*
-   * Returns one Producto object or null if not found
+   * Returns one Comprador object or null if not found
    */
-    public Producto getByID(Integer id) {
-        Producto producto = null;
+    public Comprador getByID(Integer id) {
+        Comprador comprador = null;
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            producto = (Producto) session.get(Producto.class, id);
+            comprador = (Comprador) session.get(Comprador.class, id);
 
             //trans.commit();
         } catch (HibernateException e) {
@@ -40,14 +40,14 @@ public class ProductoDao {
         } finally {
             session.close();
         }
-        return producto;
+        return comprador;
     }
 
 
    /*
-   * Adds a new Producto object and return the id
+   * Adds a new Comprador object and return the id
    */
-    public int add(Producto producto) {
+    public int add(Comprador comprador) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         int id = 0;
@@ -55,7 +55,7 @@ public class ProductoDao {
         try {
             trans = session.beginTransaction();
 
-            id = (int) session.save(producto);
+            id = (int) session.save(comprador);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -71,16 +71,16 @@ public class ProductoDao {
 
 
    /*
-   * Updates Producto object
+   * Updates Comprador object
    */
-    public void update(Producto producto) {
+    public void update(Comprador comprador) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             trans = session.beginTransaction();
 
-            session.update(producto);
+            session.update(comprador);
 
             trans.commit();
         } catch (HibernateException e) {
@@ -95,7 +95,7 @@ public class ProductoDao {
 
 
    /*
-   * Deletes one Producto record
+   * Deletes one Comprador record
    */
     public boolean deleteByID(Integer id) {
         boolean deleted = false;
@@ -105,10 +105,10 @@ public class ProductoDao {
         try {
             trans = session.beginTransaction();
 
-            Producto producto = (Producto) session.get(Producto.class, id);
+            Comprador comprador = (Comprador) session.get(Comprador.class, id);
 
-            if (producto != null) {
-                session.delete(producto);
+            if (comprador != null) {
+                session.delete(comprador);
                 trans.commit();
                 deleted = true;
             }
@@ -127,17 +127,17 @@ public class ProductoDao {
 
 
    /*
-   * Returns a list of Producto objects
+   * Returns a list of Comprador objects
    */
-    public List<Producto> getAll() {
-        List<Producto> list = new ArrayList<Producto>();
+    public List<Comprador> getAll() {
+        List<Comprador> list = new ArrayList<Comprador>();
         //Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             //trans = session.beginTransaction();
 
-            list = session.createQuery("from Producto").list();
+            list = session.createQuery("from Comprador").list();
 
             //trans.commit();
         } catch (HibernateException e) {
