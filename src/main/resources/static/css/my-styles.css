@@ -1,0 +1,180 @@
+html,
+body {
+  height: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #2a3e59;
+}
+
+body {
+  display: flex;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  line-height: 60px;
+}
+
+.small-logo {
+  max-height: 20px;
+}
+
+.hiden {
+  display: none;
+}
+
+.shown {
+  display: block;
+}
+
+.logo {
+  color: #bbbf41;
+}
+
+.logo-class {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.maximo {
+  margin: auto;
+  max-width: 1000px;
+}
+
+/* BOOTSTRAP MODIFICATIONS */
+.nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+.nav-link:focus,
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+.nav-link.disabled {
+  color: rgba(255, 255, 255, 0.25);
+}
+.nav-link.active,
+.nav-link.show {
+  color: #fff;
+}
+
+.my-form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.my-form-control-array {
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+}
+
+.my-form-control-array-focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: inset 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.my-border-user {
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+  background-color: #dedede;
+  border-radius: 50%;
+}
+
+.my-icon-bold {
+  -webkit-text-stroke: 0.05rem currentColor;
+}
+
+.my-btn-primary {
+  color: #fff;
+  background-color: #f28d52;
+  border-color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.my-btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #f28d52;
+  border-color: #fff;
+}
+
+.my-text-color {
+  color: #f28d52 !important;
+}
+
+a.my-text-color:hover,
+a.my-text-color:focus {
+  color: #bbbf41 !important;
+}
+
+.my-badge-primary {
+  color: #fff;
+  background-color: #f28d52;
+}
+
+a.my-badge-primary:focus,
+a.my-badge-primary.focus {
+  outline: 0;
+}
+
+.my-badge-light {
+  background-color: #fff;
+  border: 1px solid #2a3e5980;
+}
+
+a.my-badge-light:focus,
+a.my-badge-light.focus {
+  outline: 0;
+}
+
+.my-form-check-input {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+.my-form-check-input > input {
+  position: absolute;
+  margin-left: -1.8rem;
+  border-radius: 50%;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  vertical-align: middle;
+  border: 0.15em solid #bbbf41;
+  -webkit-appearance: none;
+  outline: 0px;
+}
+
+.my-form-check-input > input:checked + span::before {
+  content: "\2713";
+  font-weight: bold;
+  text-align: center;
+  color: #bbbf41;
+  position: absolute;
+  left: -1.5rem;
+  top: -0.1rem;
+}
+
+.my-scrollble {
+  overflow-y: auto;
+}

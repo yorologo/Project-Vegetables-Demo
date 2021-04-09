@@ -32,6 +32,12 @@ public @Data class UnidadMedida {
     @Column(name = "id")
     private int m_id;
 
+    @Column(name = "email")
+    private String m_email;
+
+    @Column(name = "password")
+    private String m_password;
+
     @Column(name = "medida")
     private String m_medida;
 

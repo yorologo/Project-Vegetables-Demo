@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html layout:decorate="layout/simple">
+  <head>
+    <title>Soporte</title>
+  </head>
+  <body>
+    <div layout:fragment="content">
+      <h5><strong>¿Perdiste tu contraseña?</strong></h5>
+      <small class="my-2 px-3">
+        No te preocupes, puedes recoperarla a travez de tu correo electronico o
+        contactando a soporte@tuempresa.com
+      </small>
+
+        <div class="form__div">
+          <input type="email" class="form__input" placeholder=" " />
+          <label class="form__label">Correo electronico</label>
+        </div>
+
+        <button type="submit" class="btn my-btn-primary btn-block py-2 my-3">
+          Restablece tu contraseña
+        </button>
+      </form>
+      <a class="my-text-color" href="/login"><strong>Cancelar</strong></a>
+    </div>
+  </body>
+</html>
